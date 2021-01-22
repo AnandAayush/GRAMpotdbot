@@ -21,7 +21,7 @@ year = m[0]
 
 
 
-@tasks.loop(seconds=83400)
+@tasks.loop(seconds=166800)
 async def potd_olver():
     channelx = client.get_channel(801147305596026880)#potd-congrats
     await channelx.send("᲼᲼᲼᲼᲼᲼᲼᲼"*2+"**POTD SOLVERS---------( {}-{}-{} )**".format(dates,month,year))

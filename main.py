@@ -63,21 +63,21 @@ async def on_message(message):
     modmail_channel = discord.utils.get(client.get_all_channels(), name="mod-mail")
     if message.content.startswith(".potdans"):
         if message.channel.id==801144910127300708 or message.channel.id==802913210311245824:#potd_update
-        channel = client.get_channel(801144910127300708)#potd_update
+            channel = client.get_channel(801144910127300708)#potd_update
 
-        await message.channel.send("Enter new answer(must be a number) :")
-        def check(msg):
-            return msg.author == message.author and msg.channel == message.channel
+            await message.channel.send("Enter new answer(must be a number) :")
+            def check(msg):
+                return msg.author == message.author and msg.channel == message.channel
 
-        msg = await client.wait_for("message", check=check)
-        global potd_answer
-        potd_answer = msg.content.lower()
-        await message.channel.send("**POTD Answer**")
-        await message.channel.send(f'POTD Answer is : {potd_answer}')
-        lister.clear()
-        potd_solvers.clear()
-        wrongs.clear()
-        done.clear()
+            msg = await client.wait_for("message", check=check)
+            global potd_answer
+            potd_answer = msg.content.lower()
+            await message.channel.send("**POTD Answer**")
+            await message.channel.send(f'POTD Answer is : {potd_answer}')
+            lister.clear()
+            potd_solvers.clear()
+            wrongs.clear()
+            done.clear()
 
 
     if message.author == client.user:

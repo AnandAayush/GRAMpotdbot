@@ -37,17 +37,18 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
-    if message.content.startswith(".potdwriterquestions") and message.channel.id==801144910127300708:#potd_update
-        await message.channel.send("Enter POTD Question: ")
+    if message.content.startswith(".potdwriterquestions") #potd_update
+        if message.channel.id==801144910127300708 or message.channel.id==802913210311245824:
+            await message.channel.send("Enter POTD Question: ")
 
-        def check(msg):
-            return msg.author == message.author and msg.channel == message.channel
+            def check(msg):
+                return msg.author == message.author and msg.channel == message.channel
 
-        msg = await client.wait_for("message", check=check)
-        global potd_question
-        potd_question = msg.content.lower()
-        await message.channel.send("**POTD Question**")
-        await message.channel.send(f'POTD Question is : {potd_question}')
+            msg = await client.wait_for("message", check=check)
+            global potd_question
+            potd_question = msg.content.lower()
+            await message.channel.send("**POTD Question**")
+            await message.channel.send(f'POTD Question is : {potd_question}')
 
     if message.content.startswith("$potd"):
         await message.channel.send(potd_question)
@@ -60,18 +61,19 @@ async def on_message(message):
 
     empty_array = []
     modmail_channel = discord.utils.get(client.get_all_channels(), name="mod-mail")
-    if message.content.startswith(".potdans") and message.channel.id ==801144910127300708 :#potd_update
+    if message.content.startswith(".potdans"):
+        if message.channel.id==801144910127300708 or message.channel.id==802913210311245824:#potd_update
         channel = client.get_channel(801144910127300708)#potd_update
 
-        await channel.send("Enter new answer(must be a number) :")
+        await message.channel.send("Enter new answer(must be a number) :")
         def check(msg):
             return msg.author == message.author and msg.channel == message.channel
 
         msg = await client.wait_for("message", check=check)
         global potd_answer
         potd_answer = msg.content.lower()
-        await channel.send("**POTD Answer**")
-        await channel.send(f'POTD Answer is : {potd_answer}')
+        await message.channel.send("**POTD Answer**")
+        await message.channel.send(f'POTD Answer is : {potd_answer}')
         lister.clear()
         potd_solvers.clear()
         wrongs.clear()

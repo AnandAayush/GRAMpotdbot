@@ -37,7 +37,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
-    if message.content.startswith(".potdwriterquestions") #potd_update
+    if message.content.startswith(".potdwriterquestions"): #potd_update
         if message.channel.id==801144910127300708 or message.channel.id==802913210311245824:
             await message.channel.send("Enter POTD Question: ")
 

@@ -52,6 +52,8 @@ async def on_message(message):
 
     if message.content.startswith("$potd"):
         await message.channel.send(potd_question)
+    if message.content.startswith("$kanerithi"):
+        await message.channel.send(potd_answer)    
     if message.channel.id==801148301948223548:#potd_forward
         channel_potd = client.get_channel(787632827822374973)#potd_main
         await channel_potd.send(message.content)

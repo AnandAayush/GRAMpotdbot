@@ -291,4 +291,4 @@ async def potdmistake(ctx, *,message):
 
 
 
-client.run('ODAyNDgwNzEzOTY5NDM0NjM0.YAv2Zw.UTtMe84FCmWV78MKqqLoos0Uvy0')
+client.run('ODAxMTQyMjgwOTY2MTExMjcy.YAcX5A.mW9R01-FQRAN0vOMibHeKi9IBkA')

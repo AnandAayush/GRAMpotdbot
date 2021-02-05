@@ -212,7 +212,7 @@ async def on_message(message):
             mod_message = string[index:]
     if message.content.startswith("noone"):
         await message.channel.send("NO ONE SOLVED POTD-{lengthofpotd} :(")       
-    if message.content.startswith("$lb") and message.author.display_name in lister:
+    if message.content.startswith("$lb"):
         lengthofpotd = len(potd_questions)
         await message.channel.send(f"**POTD-{lengthofpotd} SOLVERS**")
         Weightedfactor=100/(len(lister))
